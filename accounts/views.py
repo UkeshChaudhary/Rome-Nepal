@@ -12,6 +12,13 @@ from .emails import *
 # Register API
 
 class RegisterAPI(APIView):
+
+    def get(self, request):
+        users = User.objects.all()
+        serializer = UserSerializer(users, many=True)
+        return Response(serializer.data)
+     
+
     def post(self, request):
         try:
             data = request.data
@@ -84,6 +91,7 @@ from django.contrib.auth import authenticate
 
 class LoginView(APIView):
     permission_classes = [AllowAny]
+
 
     def post(self, request):
         serializer = LoginSerializer(data=request.data)
