@@ -1,11 +1,14 @@
 from rest_framework import serializers
 from .models import *
+from Trip.serializers import TripSerializer
 
 
 class UserSerializer(serializers.ModelSerializer):
+    trips = TripSerializer(many = True, read_only=True)
+
     class Meta:
         model = User
-        fields = ['fullname', 'email', 'password', 'is_verified']
+        fields = ['fullname', 'email', 'password', 'is_verified', 'trips']
         extra_kwargs = {
             'password' : {'write_only' : True}
         }

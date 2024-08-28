@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure--4*_61=2*3xnz#&+y90d3wym&s3pu)4p@uk2)6m=t_*+5-k7il
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['003f-2407-5200-405-4c2b-d3fa-2812-4f50-bde1.ngrok-free.app', '127.0.0.1']
+ALLOWED_HOSTS = ['818a-2407-5200-403-225-9ac2-d3be-6ac4-c842.ngrok-free.app', '127.0.0.1']
 AUTH_USER_MODEL = 'accounts.User'
 
 
@@ -41,8 +41,8 @@ INSTALLED_APPS = [
 
     # Custom Apps
     'rest_framework',
-    'main',
     'accounts',
+    'Trip',
 ]
 
 MIDDLEWARE = [
@@ -125,8 +125,12 @@ import os
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_SSL_REDIRECT = True  # Redirect all HTTP requests to HTTPS
+
+
+# MEDIA_URL = '/media/'
+# MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 
 # Default primary key field type
