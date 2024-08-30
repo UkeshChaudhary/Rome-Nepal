@@ -2,10 +2,10 @@ from rest_framework.serializers import ModelSerializer
 from .models import *
 
 #PlaceImage Serializers
-class PlaceImageSerializers(ModelSerializer):
-    class Meta:
-        model = PlaceImage
-        fields = ['id', 'image', 'description']
+# class PlaceImageSerializers(ModelSerializer):
+#     class Meta:
+#         model = PlaceImage
+#         fields = ['id', 'image', 'description']
 
 
 
@@ -49,7 +49,7 @@ class ActivitySerializers(ModelSerializer):
 
 #Place Serializers
 class PlaceSerilizers(ModelSerializer):
-    images = PlaceImageSerializers(many=True, read_only=True)
+    # images = PlaceImageSerializers(many=True, read_only=True)
     activities = ActivitySerializers(many=True, read_only = True)
     resturants = ResturantSerializers(many=True, read_only=True)
 

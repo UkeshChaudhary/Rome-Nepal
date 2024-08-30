@@ -20,6 +20,7 @@ class Place(models.Model):
     name = models.CharField(max_length=255)
     description = models.TextField(blank=True, null=True)
     place_type = models.CharField(max_length=255, choices=PLACE_TYPE_CHOICES)
+    images = models.ImageField(blank=True, null=True)
 
     def __str__(self):
         return self.name
@@ -27,21 +28,22 @@ class Place(models.Model):
 
 #Place Image Modles
 
-class PlaceImage(models.Model):
-    place = models.ForeignKey(Place, related_name='images', on_delete=models.CASCADE)
-    image = models.ImageField(upload_to='places/images/')
-    description = models.TextField(blank=True, null=True)
+# class PlaceImage(models.Model):
+#     place = models.ForeignKey(Place, related_name='images', on_delete=models.CASCADE)
+#     image = models.ImageField(upload_to='places/images/')
+#     description = models.TextField(blank=True, null=True)
+
     
 
-    def save(self, *args, **kwargs):
-        #Ensure the directory structure is created based on the place name
+#     def save(self, *args, **kwargs):
+#         #Ensure the directory structure is created based on the place name
 
-        if self.place:
-            self.image.field.upload_to = f'images/{self.place.name}/'
-        super().save(*args, **kwargs)
+#         if self.place:
+#             self.image.field.upload_to = f'images/{self.place.name}/'
+#         super().save(*args, **kwargs)
 
-    def __str__(self):
-        return f"Image for {self.place.name}"
+#     def __str__(self):
+#         return f"Image for {self.place.name}"
     
 
 # Resturant Model

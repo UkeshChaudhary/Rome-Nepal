@@ -4,7 +4,7 @@ from .models import *
 # Register your models here.
 
 admin.site.register(Place)
-admin.site.register(PlaceImage)
+# admin.site.register(PlaceImage)
 admin.site.register(Resturant)
 admin.site.register(Activity)
 admin.site.register(Trip)
