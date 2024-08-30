@@ -16,6 +16,7 @@ router.register(r'restaurant-visits', RestaurantVisitViewSet, basename='restaura
 router.register(r'activities', ActivityViewSet, basename='activity')
 router.register(r'restaurants', RestaurantViewSet, basename='restaurant')
 router.register(r'demo', DemoViewSet, basename='demo')
+router.register(r'plan', PlanViewSet, basename='plan')
 
 
 urlpatterns = [

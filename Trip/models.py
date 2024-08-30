@@ -85,7 +85,7 @@ class Trip(models.Model):
     end_date = models.DateField()
 
     def __str__(self):
-        return f"{self.name} by {self.user.username}"
+        return f"{self.name} by {self.user}"
 
 # Day Plan Model
 class DayPlan(models.Model):
@@ -101,7 +101,7 @@ class ActivityPlan(models.Model):
     day_plan = models.ForeignKey(DayPlan, related_name='activity_plans', on_delete=models.CASCADE)
     activity = models.ForeignKey(Activity, related_name='activity_plans', on_delete=models.CASCADE)
     start_time = models.TimeField()
-    end_time = models.TimeField()
+    duration = models.CharField(max_length=100)
 
     def __str__(self):
         return f"{self.activity.name} on {self.day_plan.date}"
@@ -127,3 +127,13 @@ class Demo(models.Model):
 
     def __str__(self):
         return f"{self.name}"
+    
+
+class Plan(models.Model):
+    Startdate = models.DateField()
+    duration = models.CharField(max_length=100)
+    name = models.ForeignKey(Demo, related_name='demo', on_delete= models.CASCADE)
+    activitys = models.IntegerField()
+
+    def __str(self):
+        return f"{self.Startdate} for {self.duration}"

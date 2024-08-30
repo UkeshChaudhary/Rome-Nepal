@@ -13,5 +13,7 @@ admin.site.register(ActivityPlan)
 admin.site.register(RestaurantVisit)
 
 
+
 #Demo Model Registration
 admin.site.register(Demo)
+admin.site.register(Plan)

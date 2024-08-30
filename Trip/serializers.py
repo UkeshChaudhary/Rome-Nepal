@@ -70,7 +70,7 @@ class PlaceSerilizers(ModelSerializer):
 class ActivityPlanSerializer(ModelSerializer):
     class Meta:
         model = ActivityPlan
-        fields = ['id', 'day_plan', 'activity', 'start_time', 'end_time']
+        fields = ['id', 'day_plan', 'activity', 'start_time', 'duration']
 
 # Restaurant Visit Serializer
 class RestaurantVisitSerializer(ModelSerializer):
@@ -103,4 +103,11 @@ class DemoSerializer(ModelSerializer):
     class Meta:
         model = Demo
         fields = '__all__'
+
+
+class PlanSerializer(ModelSerializer):
+
+    class Meta:
+        model = Plan
+        fields = "__all__"
         

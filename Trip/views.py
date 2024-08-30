@@ -89,3 +89,8 @@ class RestaurantViewSet(viewsets.ModelViewSet):
 class DemoViewSet(ModelViewSet):
     queryset = Demo.objects.all()
     serializer_class = DemoSerializer
+
+
+class PlanViewSet(ModelViewSet):
+    queryset = Plan.objects.all()
+    serializer_class = PlanSerializer
