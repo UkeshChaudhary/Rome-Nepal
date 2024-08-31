@@ -65,26 +65,25 @@ class RestaurantVisitViewSet(viewsets.ModelViewSet):
 
 # Activity ViewSet (For Adding Activities)
 class ActivityViewSet(viewsets.ModelViewSet):
+    queryset = Activity.objects.all()
     serializer_class = ActivitySerializers
 
     def get_queryset(self):
-        trip_id = self.request.query_params.get('trip')
-        if trip_id:
-            trip = Trip.objects.get(id=trip_id)
-            return Activity.objects.filter(place=trip.place)
-        return Activity.objects.all()
+        place_id = self.request.query_params.get('place', None)
+        if place_id:
+            return self.queryset.filter(place=place_id)
+        return self.queryset
 
 # Restaurant ViewSet (For Adding Restaurants)
 class RestaurantViewSet(viewsets.ModelViewSet):
+    queryset = Resturant.objects.all()
     serializer_class = ResturantSerializers
 
     def get_queryset(self):
-        trip_id = self.request.query_params.get('trip')
-        if trip_id:
-            trip = Trip.objects.get(id=trip_id)
-            return Resturant.objects.filter(place=trip.place)
-        return Resturant.objects.all()
-
+        place_id = self.request.query_params.get('place', None)
+        if place_id:
+            return self.queryset.filter(place=place_id)
+        return self.queryset
 
 class DemoViewSet(ModelViewSet):
     queryset = Demo.objects.all()
